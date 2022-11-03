@@ -9,9 +9,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +17,19 @@ public class Role {
     @Enumerated(EnumType.STRING)// convert enum sang string
     private RoleName name;
 
+    public Long getId() {
+        return id;
+    }
 
+    public RoleName getName() {
+        return name;
+    }
 
+    public Role() {
+    }
+
+    public Role(Long id, RoleName name) {
+        this.id = id;
+        this.name = name;
+    }
 }
