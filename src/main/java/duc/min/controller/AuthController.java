@@ -1,6 +1,6 @@
 package duc.min.controller;
 
-import duc.min.dto.request.SignIn;
+import duc.min.dto.request.SignInForm;
 import duc.min.dto.request.SignUpForm;
 import duc.min.dto.response.JwtResponse;
 import duc.min.dto.response.ResponseMessage;
@@ -72,7 +72,7 @@ public class AuthController {
         return new ResponseEntity<>(new ResponseMessage("create_success"),HttpStatus.OK);
     }
     @PostMapping("/signin")
-    public ResponseEntity<?>signIn(@Valid @RequestBody SignIn signIn){
+    public ResponseEntity<?>signIn(@Valid @RequestBody SignInForm signIn){
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(signIn.getUsername(),signIn.getPassword())
         );
